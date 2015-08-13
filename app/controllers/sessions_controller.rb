@@ -1,10 +1,11 @@
+require 'devise'
 class SessionsController < ApplicationController
 
   def new
   end
 
-  def create
-    user = User.find_by_username(params[:username])
+  def create(username)
+    user = find_by_username(username)
     if user && user.authenticate_by_username(username,password)
       session[:user_id] = user.id
       redirect_to '/'
