@@ -9,11 +9,15 @@ class UsersController < ApplicationController
     @users = User.new(user_params)
      if @users.save
        puts 'User created successfully'
-       redirect_to '/'
+       redirect_to '/login'
      else
        flash[:notice] = "There's a problem."
        render 'new'
      end
+  def show
+    @users=User.find(:all)
+  end
+
   end
 
   private
