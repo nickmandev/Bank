@@ -1,17 +1,16 @@
-require 'devise'
+require 'bcrypt'
 class SessionsController < ApplicationController
 
   def new
   end
 
-  def create(username)
-    user = User.authenticate(params[:session][:email],params[:session][:password])
-    if user.nil?
-      flash.now[:error] = "Invalid password/email combination."
-      render 'new'
+  def create
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to '/user/show', :notice => "Logged in!"
     else
-      sign_in user
-      redirect_to '/user/show'
+      render 'new'
     end
   end
 

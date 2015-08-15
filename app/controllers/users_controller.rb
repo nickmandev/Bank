@@ -1,3 +1,4 @@
+require 'bcrypt'
 class UsersController < ApplicationController
 
 
@@ -6,16 +7,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users = User.new(user_params)
-     if @users.save
-       puts 'User created successfully'
-       redirect_to '/login'
+    user = User.new(user_params)
+     if user.save
+       session[:user_id] = user.id
+       redirect_to "login"
      else
        flash[:notice] = "There's a problem."
        render 'new'
      end
   def show
-    @users=User.find(:all)
+    user = User.current_user
   end
 
   end
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:users).permit(:username, :name, :password)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 
 end
