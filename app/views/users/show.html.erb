@@ -1,5 +1,9 @@
 <h1>Users!</h1>
 <%= form_for :users, url: 'user/show' do |f| %>
-    Name:     <%= current_user.name %>
-    Email: <%= current_user.email %>
+
+
+    <h2> Welcome: <%= current_user.name %></h2>
+    <p>If you want to see your Transactions press the button: <%= link_to 'Transactions',"transactions/show"%></p>
+
+
 <% end %>
