@@ -32,3 +32,8 @@
     font-size: medium;
     color: ghostwhite;
 }
+
+.flash-notice {
+    color: darkgreen;
+    font-style: italic;
+}

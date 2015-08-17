@@ -10,10 +10,9 @@ class UsersController < ApplicationController
     user = User.new(user_params)
      if user.save
        session[:user_id] = user.id
-       redirect_to "login"
+       redirect_to "login", notice: "Successfully created an account."
      else
-       flash[:notice] = "There's a problem."
-       render 'new'
+       render 'new', notice: "There's a problem."
      end
   def show
     user = User.current_user

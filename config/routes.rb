@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'balance/index'
+
+  get 'deposit/new'
+
+  get 'deposit/create'
+
+  get 'withdraw/new'
+
+  get 'withdraw/create'
+
  root 'sessions#new'
   get 'login' => 'sessions#new'
   post '/login' => 'sessions#create'
