@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'balance/index'
 
-  get 'deposit/new'
+  get '/deposit' => 'deposit#new'
 
   get 'deposit/create'
 
-  get 'withdraw/new'
+  get '/withdraw' => 'withdraw#new'
 
   get 'withdraw/create'
 
