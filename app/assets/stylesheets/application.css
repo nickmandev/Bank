@@ -14,8 +14,21 @@
  *= require_self
  */
 .margin-center {
-    margin: 0 auto;
+    margin-left: 11.5cm;
+    margin-top : 1cm;
+}
+
+#backdroung {
+    background-color : #99CCFF;
 }
 .text-center {
-    text-align: center
+    text-align: center;
+    color: darkred;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.m-ghostwhite {
+    font-size: medium;
+    color: ghostwhite;
 }

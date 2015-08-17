@@ -5,8 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+      html {
+          background: url(http://www.hdwallpapers.in/walls/new_york_skyline-wide.jpg) no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+      }
+  </style>
 </head>
-<body>
+<body class="m-ghostwhite">
 
 <% if current_user %>
     Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
