@@ -1,0 +1,9 @@
+<h1>Initial Amount</h1>
+
+<p>Please enter the amount of money you want to deposit.</p>
+
+<%= form_for :transaction, url: 'transaction/amount' do |f| %>
+    Amount: <%= f.number_field :amount %>
+    <%= f.submit 'Submit' %>
+
+<% end %>

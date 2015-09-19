@@ -1,13 +1,13 @@
 
-<%= form_for :users, url: 'user/show' do |f| %>
+<%= form_for :user, url: 'user/show' do |f| %>
 
-    <h1> Welcome: <%= current_user.name %></h1>
     <p>Please select from the list with options:</p>
      <ul>
-       <li><%= link_to "Withdraw", "/withdraw" %></li>
        <li><%= link_to "Deposit", "/deposit" %></li>
-       <li><%= link_to "Balance", "/balance/" %></li>
+       <li><%= link_to "Balance", transaction_path %></li>
+       <li><%= link_to "withdraw", "/withdraw" %></li>
      </ul>
 
+     
 
 <% end %>

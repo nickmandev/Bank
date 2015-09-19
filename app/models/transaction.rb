@@ -1,15 +1,14 @@
 class Transaction < ActiveRecord::Base
 
-def withdraw
-@balance =
-end
+belongs_to :user
+has_many :deposits
+has_many :withdraws
 
-def deposit
-deposit += amount
-end
+validates :user_id, presence: true
 
-def amount
-
+def self.amount
+	balance = Transaction.order(:id).last
+ 	balance = balance.amount.to_i
 end
 
 

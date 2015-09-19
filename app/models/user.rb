@@ -1,6 +1,8 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
 
+	has_many :transactions 
+  
   has_secure_password
 
   #attr_accessor :password
@@ -9,6 +11,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of  :email
   validates :name, :presence => true
   validates :password, :presence => true,
-            length: {:minimum => 4}
+            length: {:minimum => 4} 
 
 end

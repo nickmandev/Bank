@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
+  
+  root 'sessions#new'
+  
   get 'balance/index'
 
-  get '/deposit' => 'deposit#new'
-
-  get 'deposit/create'
-
-  get '/withdraw' => 'withdraw#new'
-
-  get 'withdraw/create'
-
- root 'sessions#new'
+  get "/transaction" => 'transactions#new'
+  post "/transaction/amount" => 'transactions#create'
+  
+  #get 'deposit' => 'deposits#new'
+  #post '/deposit' => 'deposits#create'
+  
   get 'login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  
   get  'logout' => 'sessions#destroy'
 
   get 'signup' => 'users#new'
