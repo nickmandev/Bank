@@ -2,8 +2,9 @@
 
 <p>Please enter the amount of money you want to deposit.</p>
 
-<%= form_for :transaction, url: 'transaction/amount' do |f| %>
-    Amount: <%= f.number_field :amount %>
+<%= form_for :transaction, url: "transaction/amount" do |f| %>
+    Amount: <%= f.number_field :amount %> 
+    <%=f.collection_select(:account_id, Account.all, :id, :name,  {prompt: "Select Account"})%>
     <%= f.submit 'Submit' %>
 
 <% end %>

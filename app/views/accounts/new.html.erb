@@ -1,0 +1,8 @@
+<h1>Create Account</h1>
+
+
+<%= form_for :account, url: 'create' do |f| %>
+    Name: <%= f.text_field :name %>
+    <%= f.submit 'Create' %>
+
+    <% end %>

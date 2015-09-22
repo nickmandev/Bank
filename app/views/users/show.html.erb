@@ -1,11 +1,13 @@
 
 <%= form_for :user, url: 'user/show' do |f| %>
 
+
+   
     <p>Please select from the list with options:</p>
      <ul>
-       <li><%= link_to "Deposit", "/deposit" %></li>
-       <li><%= link_to "Balance", transaction_path %></li>
-       <li><%= link_to "withdraw", "/withdraw" %></li>
+       <li><%= link_to "Create new account", accounts_new_path %></li>
+       <li><%= link_to "Deposit", deposit_path %></li>
+       <li><%= link_to "Withdraw", withdraw_path %></li>
      </ul>
 
      

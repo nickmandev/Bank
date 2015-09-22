@@ -1,7 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
 
-	has_many :transactions 
+	has_many :accounts
   
   has_secure_password
 
