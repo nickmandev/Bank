@@ -4,10 +4,18 @@ class TransactionsController < ApplicationController
  
  end
 
- def create
- 	balance =Transaction.new(balance_params)
- 	balance.save
- end
+ def index
+ 	@balance = 0
+ 	account = Account.find_by_id(balance_params[:account_id])
+ 	balance = account.transactions.each do |bal|
+ 		if bal.transaction_type == 'Deposit'
+		@balance += bal.amount
+		else
+		@balance -= bal.amount
+		end
+	end
+end
+
 
  def deposit_form
  
@@ -15,12 +23,13 @@ class TransactionsController < ApplicationController
 
 
  def deposit
- 	deposit =Transaction.new(balance_params)
+ 	accounts = Account.find(balance_params[:account_id])
+ 	deposit =accounts.transactions.create(balance_params)
  	
  	if deposit.save
  		redirect_to "/user/show", notice: "Deposit was successful"
  	else 	
- 		render "/deposit", notice: "Deposit failed"
+ 		render "deposit_form", notice: "Deposit failed"
  	end
  end
 
@@ -30,8 +39,8 @@ end
 
 
 def withdraw
-	withdraw =Transaction.new(balance_params)
-	
+	accounts = Account.find(balance_params[:account_id])
+	withdraw =accounts.transactions.create(balance_params)
 	if withdraw.save
 		redirect_to "/user/show", notice: "Withdraw was successful"
 	else 
@@ -39,10 +48,11 @@ def withdraw
 	end
 end
 
+
+
 private 
 def balance_params
 	params.require(:transaction).permit(:transaction_type, :account_id, :amount, :deposit)	
 end
-
 
 end

@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  
+
   def new
   end
 
@@ -12,6 +14,10 @@ class AccountsController < ApplicationController
     end
   end
 
+
+  def balance
+    
+  end
 
   private
   	def account_params

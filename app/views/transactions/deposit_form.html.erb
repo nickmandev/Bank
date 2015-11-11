@@ -5,7 +5,7 @@
 <%= form_for :transaction, url: 'deposit/new' do |f| %>
     <%= f.hidden_field :transaction_type, value: 'Deposit' %>
     Amount: <%= f.number_field :amount %>
-    <%=f.collection_select(:account_id, Account.all, :id, :name, {:prompt => "Select Account"})%>
+    <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
     <%= f.submit 'Submit' %>
 
 <% end %>

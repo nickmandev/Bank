@@ -1,7 +1,7 @@
 require 'bcrypt'
 class UsersController < ApplicationController
 
-
+  
   def new
   #empty for now..
   end
@@ -14,12 +14,6 @@ class UsersController < ApplicationController
      else
        render 'new', notice: "There's a problem."
      end
-  def show
-    @cur_balance = User.find(params[:amount])
-    @cur_balance = @cur_balance.transaction
-
-  end
-
   end
 
   private

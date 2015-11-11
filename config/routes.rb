@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
   
-  get 'balance/index'
+  get '/balance/form' => 'transactions#index_form'
+  post '/balance' => 'transactions#index'
 
   get "/transaction" => 'transactions#new'
   post "/transaction/amount" => 'transactions#create'
