@@ -1,7 +1,6 @@
 require 'bcrypt'
 class SessionsController < ApplicationController
 
-
   def new
   end
 
@@ -9,12 +8,14 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/user/show', notice:  "Logged in!"
+      redirect_to '/user/show'
     else
       render 'new'
     end
   end
 
+  def info
+  end
   
   def destroy
     session[:user_id] = nil

@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
 
+	before_action :authenticate_user
+
  def new
  
  end
@@ -54,5 +56,7 @@ private
 def balance_params
 	params.require(:transaction).permit(:transaction_type, :account_id, :amount, :deposit)	
 end
+
+
 
 end

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'accounts/new' => 'accounts#new'
   post 'accounts/create' => 'accounts#create'
 
-  root 'sessions#new'
+  root 'sessions#info'
+
+  get '/contacs' => 'sessions#contacs'
   
   get '/balance/form' => 'transactions#index_form'
   post '/balance' => 'transactions#index'
@@ -28,4 +30,5 @@ Rails.application.routes.draw do
   get 'user/show' => 'users#show'
 
 match ':controller(/:action/(:id))', :via => [:get, :post, :patch]
+
 end

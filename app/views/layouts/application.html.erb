@@ -7,21 +7,36 @@
   <%= csrf_meta_tags %>
   <style>
       html {
-          background: url(http://www.hdwallpapers.in/walls/new_york_skyline-wide.jpg) no-repeat center center fixed;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
       }
   </style>
 </head>
-<body class="m-ghostwhite">
+<body>
+<nav> 
+  <ul>
+    <li><a href='/user/show'>Home</a></li>
+    <li><a href='/sessions/info'>About</a></li>
+    <li><a href='/contacs'>Contacs</a></li>
+  </ul>
+</nav>
+<h1> 
+  Goliath National Bank
+</h1>
+<div>
+  <% if current_user %>
+    Logged in as <%= current_user.name %>.
+    <%= link_to "Log out", logout_path %>
+  <% else %>
+    <%= link_to "Sign up", signup_path %> or
+    <%= link_to "Log in", login_path %>
+  <% end %>
 
-<% flash.each do |name, msg| %>
+  <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "alert alert-info" %>
-<% end %>
+  <% end %>
+</div>
 
 <%= yield %>
 
 </body>
+<footer>© Nikolai Manchev 2015</footer>
 </html>

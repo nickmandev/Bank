@@ -13,27 +13,6 @@
  *= require_tree .
  *= require_self
  */
-.margin-center {
-    margin-left: 11.5cm;
-    margin-top : 1cm;
-}
 
-#backdroung {
-    background-color : #99CCFF;
-}
-.text-center {
-    text-align: center;
-    color: darkred;
-    font-weight: bold;
-    font-style: italic;
-}
+@import '_variables';
 
-.m-ghostwhite {
-    font-size: medium;
-    color: ghostwhite;
-}
-
-.flash-notice {
-    color: darkgreen;
-    font-style: italic;
-}

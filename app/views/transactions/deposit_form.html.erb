@@ -1,6 +1,6 @@
 <h1>Deposit</h1>
 
-<p>Please enter the amount of money you want to deposit.</p>
+<h2>Please enter the amount of money you want to deposit.</h2>
 
 <%= form_for :transaction, url: 'deposit/new' do |f| %>
     <%= f.hidden_field :transaction_type, value: 'Deposit' %>

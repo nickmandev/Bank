@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
  
  	helper_method :current_user
 
+	def authenticate_user
+ 	redirect_to(login_url, notice:"You must be signed in to view this page!") unless current_user.present?
+	end
 	
-	
+	helper_method :authenticate_user
+
 end

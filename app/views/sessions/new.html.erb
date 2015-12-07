@@ -1,15 +1,16 @@
 <%= form_tag '/login' do %>
 
-    <p class="flash-notice"><%= notice %></p>
+  
+  
+   <h2>Welcome to our bank.</h2>
+    
 
-       <h1 class="text-center">
-      Welcome to our bank.
-    </h1>
 
-
-<div class="margin-center">
- <div> Email:<%= email_field_tag :email %></div>
-  <div> Password:<%= password_field_tag :password %></div>
+<div>
+ 	<h2>Email</h2>
+ <div> <%= email_field_tag :email %></div>
+  	<h2>Password</h2>
+ <div> <%= password_field_tag :password %></div>
  <div><%= submit_tag 'Submit' %> </div>
 
 </div>
