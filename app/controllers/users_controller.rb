@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
      if user.save
-       redirect_to "login", notice: "Successfully created an account."
+       redirect_to login_path, notice: "Successfully created an account."
      else
        render 'new', notice: "There's a problem."
      end
