@@ -1,18 +1,16 @@
-<%= form_tag '/login' do %>
+<h2>Welcome to our bank.</h2>
+<%= form_for :session do |f| %>
 
-  
-  
-   <h2>Welcome to our bank.</h2>
-    
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
 
-
-<div>
- 	<h2>Email</h2>
- <div> <%= email_field_tag :email %></div>
-  	<h2>Password</h2>
- <div> <%= password_field_tag :password %></div>
- <div><%= submit_tag 'Submit' %> </div>
-
-</div>
-
+   <div class="form-group">
+      <label for="pwd">Password:</label>
+      <%= f.password_field :password, class: "form-control"%>
+   </div>
+   <div class="form-group">
+      <%= f.submit 'Submit', class: "btn btn-default" %>
+   </div>
 <% end %>

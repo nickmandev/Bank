@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project1</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <style>
-      html {
-      }
-  </style>
+	<title>Project1</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<style>
+			html {
+			}
+	</style>
 </head>
 <body>
-<nav> 
-  <ul>
-    <li><a href='/user/show'>Home</a></li>
-    <li><a href='/sessions/info'>About</a></li>
-    <li><a href='/contacs'>Contacs</a></li>
-  </ul>
+<nav class="navabar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href='/sessions/info'>GNB</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href='/user/show'>Home</a></li>
+			<li><a href='/contacs'>Contacs</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<% if current_user %>
+        <li><a href="/accounts/new">New account</a></li>
+        <li><a href="/deposit">Deposit</a></li>
+        <li><a href="/withdraw">Withdraw</a></li>
+        <li><a href="/balance/form">Balance</a></li>
+        <li><p class="navbar-text">Logged as <%= current_user.name %></p></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+      <% else %>
+				<li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign up</a> </li>
+				<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log in</a> </li>
+			<% end %>
+		</ul>
+	</div>
 </nav>
-<h1> 
-  Goliath National Bank
-</h1>
 <div>
-  <% if current_user %>
-    Logged in as <%= current_user.name %>.
-    <%= link_to "Log out", logout_path %>
-  <% else %>
-    <%= link_to "Sign up", signup_path %> or
-    <%= link_to "Log in", login_path %>
-  <% end %>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info" %>
-  <% end %>
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, class: "alert alert-info" %>
+	<% end %>
 </div>
 
 <%= yield %>
-
+<footer>
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <p class="navbar-text pull-right">Nikolai Manchev 2016</p>
+    <a href="http://github.com/nickmandev"><i class="fa fa-github-alt fa-3x"></i></a>
+  </div>
+</footer>
 </body>
-<footer>© Nikolai Manchev 2015</footer>
 </html>
