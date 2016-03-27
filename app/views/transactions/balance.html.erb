@@ -1,4 +1,0 @@
-<h1> Balance </h1>
- <%= form_for :transaction, url: 'balance' do |f| %>
- <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
- Account Balance: <%= f.text_field @balance %>

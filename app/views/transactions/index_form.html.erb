@@ -1,12 +1,15 @@
 <h1>Balance</h1>
 
-<h2>Please select account to see his current balance! </h2>
+<p>Please select account to see his current balance! </p>
 
 
 <%= form_for :transaction, url: '/balance' do |f| %>
+   <div class="form-group">
     <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
-    <%= f.submit 'Submit' %>
-
+   </div>
+   <div class="form-group">
+    <%= f.submit 'View Balance', class: 'btn btn-primary' %>
+   </div>
 
 
 <% end %>
