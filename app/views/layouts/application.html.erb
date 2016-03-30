@@ -23,9 +23,14 @@
 		<ul class="nav navbar-nav navbar-right">
 			<% if current_user %>
         <li><a href="/accounts/new">New account</a></li>
-        <li><a href="/deposit">Deposit</a></li>
-        <li><a href="/withdraw">Withdraw</a></li>
-        <li><a href="/balance/form">Balance</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transactions<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/deposit">Deposit</a></li>
+              <li><a href="/withdraw">Withdraw</a></li>
+              <li><a href="/balance">Balance</a></li>
+            </ul>
+        </li>
         <li><p class="navbar-text">Logged as <%= current_user.name %></p></li>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
       <% else %>

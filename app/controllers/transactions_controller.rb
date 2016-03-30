@@ -3,20 +3,21 @@ class TransactionsController < ApplicationController
 	before_action :authenticate_user
 
  def new
- 
+
  end
 
- def index
+ def balance
  	@balance = 0
  	account = Account.find_by_id(balance_params[:account_id])
- 	balance = account.transactions.each do |bal|
- 		if bal.transaction_type == 'Deposit'
-		@balance += bal.amount
-		else
-		@balance -= bal.amount
-		end
+  filter_currency=account.transactions.where("currency = '#{params[:transaction][:currency]}'")
+  filter_currency.each do |trans|
+    if trans.transaction_type=='Deposit'
+        @balance += bl.amount
+    else
+        @balance -= bl.amount
+    end
+   end
 	end
-end
 
 
  def deposit_form
@@ -54,7 +55,7 @@ end
 
 private 
 def balance_params
-	params.require(:transaction).permit(:transaction_type, :account_id, :amount, :deposit)	
+	params.require(:transaction).permit(:transaction_type, :account_id, :amount, :currency)
 end
 
 

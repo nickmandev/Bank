@@ -31,6 +31,7 @@ gem 'bootstrap-sass'
 
 gem 'font-awesome-rails'
 
+gem 'money-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

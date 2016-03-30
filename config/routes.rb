@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   get '/contacs' => 'sessions#contacs'
   
-  get '/balance/form' => 'transactions#index_form'
-  post '/balance' => 'transactions#index'
+  get '/balance' => 'transactions#balance_form'
+  post '/balance/current' => 'transactions#balance'
 
   get "/transaction" => 'transactions#new'
   post "/transaction/amount" => 'transactions#create'

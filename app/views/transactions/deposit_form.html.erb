@@ -3,16 +3,22 @@
 <p>Please enter the amount of money you want to deposit.</p>
 
 <%= form_for :transaction, url: 'deposit/new' do |f| %>
+  <form action='deposit_form.html.erb'>
     <%= f.hidden_field :transaction_type, value: 'Deposit' %>
     <div class="row">
       <div class="form-group col-sm-2">
         <%= f.number_field :amount, class: 'form-control' %>
       </div>
     </div>
-     <div class="form-group">
+    <div class="form-group">
+      <input type="radio" name="transaction[currency]" value="EUR">EUR<br>
+      <input type="radio" name="transaction[currency]" value="BGN">BGN<br>
+    </div>
+    <div class="form-group">
         <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
         <%= f.submit 'Deposit', class: 'btn btn-primary' %>
-      </div>
+    </div>
+  </form>
 <% end %>

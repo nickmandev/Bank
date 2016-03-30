@@ -3,18 +3,22 @@
 <p>Please enter the amount of money you want to withdraw.</p>
 
 <%= form_for :transaction, url: 'withdraw/new' do |f| %>
-    <%= f.hidden_field :transaction_type, value: 'Withdraw'%>
-  <div class="row">
-    <div class="form-group col-sm-2">
-    <%= f.number_field :amount, class:'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
-  </div>
-  <div class="form-group">
-    <%= f.submit 'Withdraw', class:"btn btn-primary" %>
-  </div>
-
-
+   <form action="withdraw_form.html.erb">
+      <%= f.hidden_field :transaction_type, value: 'Withdraw'%>
+      <div class="row">
+          <div class="form-group col-sm-2">
+            <%= f.number_field :amount, class:'form-control' %>
+          </div>
+      </div>
+      <div class="form-group">
+          <input type="radio" name="transaction[currency]" value="BGN">BGN<br>
+          <input type="radio" name="transaction[currency]" value="EUR">EUR<br>
+      </div>
+      <div class="form-group">
+          <%=f.collection_select(:account_id, current_user.accounts, :id, :name, {:prompt => "Select Account"})%>
+      </div>
+      <div class="form-group">
+          <%= f.submit 'Withdraw', class:"btn btn-primary" %>
+      </div>
+   </form>
 <% end %>
